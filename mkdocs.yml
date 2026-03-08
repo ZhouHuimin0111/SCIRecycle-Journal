@@ -1,24 +1,26 @@
-site_name: SCIRecycle 期刊
-site_description: 那些被系统埋没的思考，无处安放的灵魂，都值得被看见。
-site_author: SCIRecycle 编辑委员会
+site_name: SCIRecycle Journal
+site_description: Turning Today's Garbage into Tomorrow's Citations.
+site_author: SCIRecycle Editorial Board
 
-# 网站图标配置
 logo: assets/logo.png
 favicon: assets/logo.png
 
 theme:
   name: material
   language: zh
+  features:
+    - navigation.tabs # 开启顶部横向导航栏
+    - navigation.top # 开启回到顶部按钮
+    - header.autohide # 滚动时自动隐藏头部
   font:
-    text: Roboto
+    text: Noto Serif SC # 换用衬线字体，增加学术感
     code: Fira Code
-  # 高级颜色配置（深浅色切换）
   palette:
-    # 浅色模式
+    # 浅色模式 (类似报纸的白底黑字)
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: black
-      accent: indigo
+      primary: white
+      accent: black
       toggle:
         icon: material/brightness-7
         name: 切换到深色模式
@@ -26,12 +28,13 @@ theme:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
-      accent: indigo
+      accent: white
       toggle:
         icon: material/brightness-4
         name: 切换到浅色模式
 
 nav:
-  - 首页: index.md
-  - 第一卷 (2026):
-    - 安慰剂优化 (示例): vol1/placebo.md
+  - 首页 / HOME: index.md
+  - 投稿须知 / SUBMIT: submit.md
+  - 第一卷 / VOL 1:
+    - 安慰剂优化: vol1/placebo.md
