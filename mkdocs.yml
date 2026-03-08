@@ -1,15 +1,20 @@
-# ... site_name, site_author, etc.
+site_name: SCIRecycle Journal
+site_description: Turning Today's Garbage into Tomorrow's Citations.
+site_author: SCIRecycle Editorial Board
 
-# 网站图标配置
-logo: assets/logo.png
-favicon: assets/logo.png
-
-# ... theme and font
 theme:
   name: material
-  # ...
+  language: zh
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  features:
+    - navigation.tabs
+    - navigation.top
+    - header.autohide
+  font:
+    text: Noto Serif SC
+    code: Fira Code
   palette:
-    # 浅色模式 (类似报纸的白底黑字)
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: white
@@ -17,7 +22,6 @@ theme:
       toggle:
         icon: material/brightness-7
         name: 切换到深色模式
-    # 深色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
@@ -25,6 +29,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: 切换到浅色模式
+
 nav:
   - 首页 / HOME: index.md
-  # ...
+  - 投稿须知 / SUBMIT: submit.md
+  - 第一卷 / VOL 1:
+    - 安慰剂优化: vol1/placebo.
