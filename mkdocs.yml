@@ -2,6 +2,7 @@ site_name: SCIRecycle Journal
 site_description: Turning Today's Garbage into Tomorrow's Citations.
 site_author: SCIRecycle Editorial Board
 
+# 网站图标 (暂时沿用，下一步我们把大图藏起来)
 logo: assets/logo.png
 favicon: assets/logo.png
 
@@ -9,29 +10,18 @@ theme:
   name: material
   language: zh
   features:
-    - navigation.tabs # 开启顶部横向导航栏
+    - navigation.tabs # 开启顶部横向大导航栏
     - navigation.top # 开启回到顶部按钮
-    - header.autohide # 滚动时自动隐藏头部
+    - header.autohide # 滚动时隐藏头部
+    - magazines # 开启顶级杂志布局功能（实现网格和卡片排版）
   font:
     text: Noto Serif SC # 换用衬线字体，增加学术感
     code: Fira Code
   palette:
     # 浅色模式 (类似报纸的白底黑字)
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: white
-      accent: black
-      toggle:
-        icon: material/brightness-7
-        name: 切换到深色模式
-    # 深色模式
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: white
-      toggle:
-        icon: material/brightness-4
-        name: 切换到浅色模式
+    - scheme: default
+      primary: white # 头部背景改为纯白
+      accent: deep orange # 强调色改为深橙色（类似那里的红色）
 
 nav:
   - 首页 / HOME: index.md
