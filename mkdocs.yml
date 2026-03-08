@@ -1,18 +1,10 @@
-site_name: SCIRecycle Journal
-site_description: Turning Today's Garbage into Tomorrow's Citations.
-site_author: SCIRecycle Editorial Board
-
-theme:
-  name: material
-  font:
-    text: Roboto
-    code: Fira Code
-  palette:
-    primary: black
-    accent: indigo
 site_name: SCIRecycle 期刊
-site_description: 把今天的垃圾变成明天的引用
+site_description: 那些被系统埋没的思考，无处安放的灵魂，都值得被看见。
 site_author: SCIRecycle 编辑委员会
+
+# 网站图标配置
+logo: assets/logo.png
+favicon: assets/logo.png
 
 theme:
   name: material
@@ -20,15 +12,26 @@ theme:
   font:
     text: Roboto
     code: Fira Code
+  # 高级颜色配置（深浅色切换）
   palette:
-    primary: black
-    accent: indigo
+    # 浅色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    # 深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
 
 nav:
   - 首页: index.md
   - 第一卷 (2026):
     - 安慰剂优化 (示例): vol1/placebo.md
-nav:
-  - Home: index.md
-  - Volume 1 (2026):
-    - Placebo Optimization (Example): vol1/placebo.md
