@@ -5,6 +5,7 @@ site_author: SCIRecycle Editorial Board
 theme:
   name: material
   language: zh
+  custom_dir: overrides  # 新增这一行
   logo: assets/logo.png
   favicon: assets/logo.png
   features:
@@ -31,8 +32,10 @@ theme:
         name: 切换到浅色模式
 
 nav:
-  nav:
-    - 首页 / HOME: index.md
-    - 投稿须知 / SUBMIT: submit.md
-    - 第一卷 / VOL 1:
-        - 边缘化演变研究: vol1/marginalized-evolution.md
+  - 首页 / HOME: index.md
+  - 投稿须知 / SUBMIT: submit.md
+  - 第一卷 / VOL 1:
+    - 边缘化演变研究: vol1/marginalized-evolution.md
+plugins:
+  - search:
+      lang: zh
