@@ -471,79 +471,167 @@
 
 
 
+  <h1>首页 / HOME</h1>
+
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div align="center" style="margin: 40px 0 60px 0; color: #777; font-family: 'Times New Roman', STSong, serif;">
-  <h1 style="font-size: 2.8em; font-weight: normal; margin-bottom: 20px;">SCIRecycle Journal</h1>
+<style>
+  /* 1. 突破 MkDocs 默认宽度限制，将页面撑满 */
+  .md-grid { max-width: 1500px !important; }
+  .md-content { max-width: 100% !important; }
 
-  <div style="width: 60px; margin: 0 auto 20px auto;">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-      <line x1="10" y1="11" x2="10" y2="17"></line>
-      <line x1="14" y1="11" x2="14" y2="17"></line>
-    </svg>
+  /* 基础容器 */
+  .scirecycle-wrapper { font-family: "Times New Roman", STSong, serif !important; color: #1a1a1a; line-height: 1.6; }
+  .scirecycle-wrapper a { text-decoration: none; color: inherit; }
+  .scirecycle-wrapper a:hover { text-decoration: underline; }
+
+  /* 2. 顶部品牌与格言区重构 */
+  .brand-box { text-align: center; margin: 20px 0 60px 0; padding-bottom: 50px; border-bottom: 1px solid #ddd; }
+  .brand-title { font-size: 3.5em; font-weight: bold; letter-spacing: 2px; margin-bottom: 15px; color: #1a1a1a; }
+  .brand-icon { margin: 15px auto 25px auto; width: 60px; color: #777; } /* 这里的宽度控制你的碎纸片SVG大小 */
+  .brand-icon svg { width: 100%; height: auto; display: block; }
+  .motto-en { font-size: 2.2em; margin-bottom: 10px; font-weight: normal; letter-spacing: 1px; color: #1a1a1a; }
+  .motto-zh { font-size: 1.1em; color: #555; letter-spacing: 4px; }
+
+  /* 核心网格布局：强制 65% : 35% 分栏，增加栏间距 */
+  .journal-grid { display: flex; gap: 60px; align-items: flex-start; }
+  .journal-left { width: 65%; flex: 0 0 65%; }
+  .journal-right { width: calc(35% - 60px); flex: 0 0 calc(35% - 60px); }
+
+  /* 栏目标题线 */
+  .section-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid #1a1a1a; padding-bottom: 8px; margin-bottom: 30px; }
+  .section-header .title { margin: 0; font-size: 2.2em; font-weight: bold; font-family: "Times New Roman", STSong, serif; }
+  .section-header .sub-text { font-size: 0.7em; color: #888; font-family: sans-serif; letter-spacing: 1px; padding-bottom: 5px; text-transform: uppercase; }
+
+  /* 社论区 */
+  .editorial-feature { display: flex; gap: 30px; margin-bottom: 60px; }
+  .editorial-img { flex: 0 0 45%; background-color: #eee; border: 1px solid #1a1a1a; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8em; }
+  .editorial-text { flex: 1; }
+  .editorial-text-title { margin: 0 0 15px 0; font-size: 2.2em; line-height: 1.2; font-family: "Times New Roman", STSong, serif; font-weight: bold; }
+  .editorial-text-subtitle { font-size: 0.5em; color: #555; display: block; margin-top: 10px; font-weight: normal; letter-spacing: 1px; }
+  .editorial-text p { font-size: 1.05em; color: #333; margin: 0 0 20px 0; text-align: justify; line-height: 1.8; }
+  .read-more { color: #c99f36 !important; font-weight: bold; font-size: 0.9em; letter-spacing: 1px; }
+
+  /* 文章列表 */
+  .article-item { border-bottom: 1px solid #ddd; padding-bottom: 25px; margin-bottom: 25px; }
+  .article-tag { display: inline-block; background: #eee; padding: 3px 8px; font-size: 0.65em; margin-bottom: 10px; color: #333; font-family: sans-serif; font-weight: bold; border: 1px solid #ccc; }
+  .article-title { margin: 0 0 10px 0; font-size: 1.6em; line-height: 1.3; font-family: "Times New Roman", STSong, serif; font-weight: bold; }
+  .article-desc { font-size: 0.95em; color: #444; margin: 0 0 10px 0; line-height: 1.6;}
+  .article-doi { font-size: 0.7em; color: #888; font-family: sans-serif; text-transform: uppercase; }
+
+  /* 边栏 */
+  .sidebar-title { margin: 0; font-size: 1.3em; font-weight: bold; font-family: "Times New Roman", STSong, serif; text-transform: uppercase; border-bottom: 3px solid #1a1a1a; padding-bottom: 5px; margin-bottom: 25px; }
+  .news-item { margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 20px; }
+  .news-date { color: #b32a2a; font-size: 0.7em; font-family: sans-serif; font-weight: bold; margin-bottom: 6px; }
+  .news-title { font-weight: bold; font-size: 1.05em; line-height: 1.4; margin-bottom: 6px; }
+  .news-desc { font-size: 0.9em; color: #666; line-height: 1.6; }
+
+  /* 指标 */
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px 15px; margin-top: 25px; }
+  .metric-label { font-size: 0.65em; color: #888; text-transform: uppercase; font-family: sans-serif; margin-bottom: 5px; letter-spacing: 1px; }
+  .metric-value { font-size: 2.2em; font-weight: bold; font-family: "Times New Roman", STSong, serif; }
+
+  /* 按钮 */
+  .btn-gold { display: block; background-color: #c99f36; color: white !important; text-align: center; padding: 18px 0; font-weight: bold; letter-spacing: 2px; margin-top: 40px; font-family: sans-serif; font-size: 0.9em; text-transform: uppercase; transition: background-color 0.2s; }
+  .btn-gold:hover { background-color: #b08a2a; }
+
+  @media (max-width: 768px) {
+    .journal-grid, .editorial-feature { flex-direction: column; }
+    .journal-left, .journal-right, .editorial-img { width: 100%; flex: auto; }
+    .brand-title { font-size: 2.5em; }
+  }
+</style>
+
+<div class="scirecycle-wrapper">
+
+  <div class="brand-box">
+    <div class="brand-title">SCIRecycle Journal</div>
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        <line x1="10" y1="11" x2="10" y2="17"></line>
+        <line x1="14" y1="11" x2="14" y2="17"></line>
+      </svg>
+    </div>
+    <div class="motto-en">"Turning Today's Garbage into Tomorrow's Citations."</div>
+    <div class="motto-zh">“此处不留爷，自有留爷处。”</div>
   </div>
 
-  <h2 style="font-size: 1.6em; font-weight: normal; margin-bottom: 10px;">"Turning Today's Garbage into Tomorrow's Citations."</h2>
-  <p style="font-size: 1.1em; letter-spacing: 2px;">“此处不留爷，自有留爷处。”</p>
-</div>
+  <div class="journal-grid">
+    <div class="journal-left">
 
-<div class="grid cards" style="font-family: 'Noto Serif SC', 'Times New Roman', serif;">
-
--   **社论 / EDITORIAL**
-    ---
-    **创刊宣言：学术去中心化**
-
-    《SCIRecycle》是一场社会实验。我们试图回答一个问题：如果把被绑架的权力交还给社区，学术评价会变得更好还是更糟？在这里，没有权威，没有学阀。每一篇稿件从草稿开始盲评...
-
-    [阅读社论全文 &rarr;](#)
-
-    <br>
-    **研究论文 / RESEARCH ARTICLES**
-    ---
-    <span style="background: #eee; padding: 2px 6px; font-size: 0.7em; color: #555;">原创研究</span><br>
-    **[非预期性生命形态的边缘化演变：一项关于家庭生态位缺失的研究](vol1/marginalized-evolution.md)**
-
-    <span style="font-size: 0.85em; color: #555; display: block; margin-top: 5px;">本文通过对边缘化个体的质性观察，探讨了在缺乏“心理准入制度”的情况下，新生命被强制部署进入家庭生态系统后的防御性降级轨迹...</span>
-
-    <span style="font-size: 0.7em; color: #888;">DOI: 10.SCIRECYCLE.2026.001</span>
-
--   **最新动态 / LATEST NEWS**
-    ---
-    <span style="color: #b32a2a; font-size: 0.8em; font-weight: bold;">09 MAR 2026</span><br>
-    **创刊号正式发布，首篇质性研究收录。**<br>
-    <span style="font-size: 0.85em; color: #666; display: block; margin-bottom: 10px;">当生育被工具化，新生命便沦为没有独立权限的附属进程。</span>
-
-    <span style="color: #b32a2a; font-size: 0.8em; font-weight: bold;">08 MAR 2026</span><br>
-    **系统全局反说教拦截器部署完成。**<br>
-    <span style="font-size: 0.85em; color: #666;">学术黑话与居高临下的规训将被自动驳回。</span>
-
-    <br>
-    **期刊指标 / JOURNAL METRICS**
-    ---
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
-      <div>
-        <div style="font-size: 0.7em; color: #888;">Total Visits</div>
-        <div style="font-size: 1.8em; font-weight: bold; color: #1a1a1a;" id="busuanzi_value_site_pv">...</div>
+      <div class="section-header">
+        <div class="title">EDITORIAL / 社论</div>
+        <div class="sub-text">VOL 1. ISSUE 1</div>
       </div>
-      <div>
-        <div style="font-size: 0.7em; color: #888;">Submissions</div>
-        <div style="font-size: 1.8em; font-weight: bold; color: #1a1a1a;">17</div>
+
+      <div class="editorial-feature">
+        <div class="editorial-img">
+          [此处后续可替换为配图]
+        </div>
+        <div class="editorial-text">
+          <div class="editorial-text-title">
+            A Manifesto for Academic Decentralization
+            <span class="editorial-text-subtitle">学术去中心化宣言</span>
+          </div>
+          <p>《SCIRecycle》是一场社会实验。我们试图回答一个问题：如果把被绑架的权力交还给社区，学术评价会变得更好还是更糟？在这里，没有权威，没有学阀。每一篇稿件从草稿开始盲评...</p>
+          <a href="#" class="read-more">阅读社论全文 &rarr;</a>
+        </div>
       </div>
-      <div>
-        <div style="font-size: 0.7em; color: #888;">Mansplaining</div>
-        <div style="font-size: 1.8em; font-weight: bold; color: #1a1a1a;">13,048</div>
+
+      <div class="section-header" style="margin-top: 50px;">
+        <div class="title">RESEARCH ARTICLES / 研究论文</div>
       </div>
-      <div>
-        <div style="font-size: 0.7em; color: #888;">Rejection Rate</div>
-        <div style="font-size: 1.8em; font-weight: bold; color: #1a1a1a;">99.9%</div>
+
+      <div class="article-item">
+        <div class="article-tag">ORIGINAL RESEARCH / 原创研究</div>
+        <div class="article-title"><a href="vol1/marginalized-evolution/">非预期性生命形态的边缘化演变：一项关于家庭生态位缺失的研究</a></div>
+        <p class="article-desc">本文通过对边缘化个体的质性观察，探讨了在缺乏“心理准入制度”的情况下，新生命被强制部署进入家庭生态系统后的防御性降级轨迹...</p>
+        <div class="article-doi">DOI: 10.SCIRECYCLE.2026.001</div>
       </div>
+
     </div>
 
-    <div style="margin-top: 25px; text-align: center;">
-      <a href="submit/" style="display: block; background-color: #c99f36; color: white; padding: 12px 0; font-weight: bold; text-decoration: none; letter-spacing: 2px; border-radius: 2px;">SUBMIT S.C.I.</a>
-    </div>
+    <div class="journal-right">
 
+      <div class="sidebar-title">LATEST NEWS / 最新动态</div>
+
+      <div class="news-item">
+        <div class="news-date">09 MAR 2026</div>
+        <div class="news-title">创刊号正式发布，首篇质性研究收录。</div>
+        <div class="news-desc">当生育被工具化，新生命便沦为没有独立权限的附属进程。</div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-date">08 MAR 2026</div>
+        <div class="news-title">系统全局反说教拦截器部署完成。</div>
+        <div class="news-desc">学术黑话与居高临下的规训将被自动驳回。</div>
+      </div>
+
+      <div class="sidebar-title" style="margin-top: 50px;">JOURNAL METRICS / 期刊指标</div>
+      <div class="metrics-grid">
+        <div>
+          <div class="metric-label">Total Visits / 访问量</div>
+          <div class="metric-value" id="busuanzi_value_site_pv">...</div>
+        </div>
+        <div>
+          <div class="metric-label">Submissions / 稿件数</div>
+          <div class="metric-value">17</div>
+        </div>
+        <div>
+          <div class="metric-label">Mansplaining / 拦截说教</div>
+          <div class="metric-value">13,048</div>
+        </div>
+        <div>
+          <div class="metric-label">Rejection Rate / 拒稿率</div>
+          <div class="metric-value">99.9<span style="font-size: 0.5em;">%</span></div>
+        </div>
+      </div>
+
+      <a href="submit/" class="btn-gold">SUBMIT S.C.I. / 提交手稿</a>
+
+    </div>
+  </div>
 </div>
 
 
