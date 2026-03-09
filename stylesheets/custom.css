@@ -1,0 +1,30 @@
+/* 1. 全局字体替换：使用严肃的衬线字体，建立学术权威感 */
+body, .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+  font-family: "Noto Serif SC", "Times New Roman", STSong, serif !important;
+}
+
+/* 2. 色彩重构：极简黑白与警示红 */
+:root > * {
+  --md-primary-fg-color: #1a1a1a; /* 顶部导航栏改为深黑色 */
+  --md-typeset-a-color: #b32a2a; /* 文章内的超链接改为暗红色 */
+  --md-accent-fg-color: #b32a2a; /* 交互强调色改为暗红色 */
+}
+
+/* 3. 抹除现代感：去除所有元素的圆角和阴影，改为硬朗的实线边框 */
+.md-typeset .md-card,
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0 !important;
+  border: 1px solid #1a1a1a !important;
+  box-shadow: none !important;
+}
+
+/* 4. 优化文章内部的图片和表格边框 */
+.md-typeset img {
+  border: 1px solid #1a1a1a;
+  border-radius: 0;
+}
+.md-typeset table {
+  border-collapse: collapse;
+  border: 2px solid #1a1a1a;
+}
