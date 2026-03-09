@@ -38,9 +38,9 @@ hide:
 
     <ul style="padding-left: 0; list-style-type: none;">
       <li style="margin-bottom: 20px;">
-        <div style="font-size: 0.85em; color: var(--md-default-fg-color--light); margin-bottom: 4px;">08 MAR 2026</div>
-        <strong>SCIRecycle 官方网站正式上线</strong><br>
-        <span style="font-size: 0.95em;">致力于保存、同行评审并发表计算机科学领域绝对最糟糕的实践。</span>
+        <div style="font-size: 0.85em; color: var(--md-default-fg-color--light); margin-bottom: 4px;">09 MAR 2026</div>
+        <strong><a href="vol1/marginalized-evolution/" style="color: inherit; text-decoration: underline;">创刊号重磅：非预期性生命形态的边缘化演变</a></strong><br>
+        <span style="font-size: 0.95em;">本刊正式收录首篇质性研究。当生育被工具化，新生命便沦为没有独立权限的“附属进程”。本文深度揭示了家庭生态位缺失对个体的系统性冷暴力。</span>
       </li>
       <li style="margin-bottom: 20px;">
         <div style="font-size: 0.85em; color: var(--md-default-fg-color--light); margin-bottom: 4px;">01 MAR 2026</div>
