@@ -5,7 +5,7 @@ body, .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
 
 /* 2. 色彩重构：极简黑白与警示红 */
 :root > * {
-  --md-primary-fg-color: #1a1a1a; /* 顶部导航栏改为深黑色 */
+
   --md-typeset-a-color: #b32a2a; /* 文章内的超链接改为暗红色 */
   --md-accent-fg-color: #b32a2a; /* 交互强调色改为暗红色 */
 }
