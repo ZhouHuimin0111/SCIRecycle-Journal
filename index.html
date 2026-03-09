@@ -272,7 +272,7 @@
               
                 
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -450,7 +450,7 @@
               
                 
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -482,6 +482,9 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <style>
+  /* 0. 暴力隐藏 MkDocs 自动生成的顽固标题 */
+  .md-content__inner > h1, h1 { display: none !important; }
+
   /* 1. 突破 MkDocs 默认宽度限制，将页面撑满 */
   .md-grid { max-width: 1500px !important; }
   .md-content { max-width: 100% !important; }
