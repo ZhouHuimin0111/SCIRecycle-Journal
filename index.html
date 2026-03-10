@@ -622,23 +622,46 @@
       </div>
 
       <div class="sidebar-title" style="margin-top: 50px;">JOURNAL METRICS / 期刊指标</div>
-      <div class="metrics-grid">
+
+      <div class="metrics-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px 15px; margin-top: 25px;">
+
         <div>
-          <div class="metric-label">Total Visits / 访问量</div>
+          <div class="metric-label">PAGE VIEWS / 总浏览量</div>
           <div class="metric-value" id="busuanzi_value_site_pv">...</div>
         </div>
         <div>
-          <div class="metric-label">Submissions / 稿件数</div>
-          <div class="metric-value">17</div>
+          <div class="metric-label">VISITORS / 独立访客</div>
+          <div class="metric-value" id="busuanzi_value_site_uv">...</div>
+        </div>
+
+        <div>
+          <div class="metric-label">SUBMISSIONS / 实时投稿数</div>
+          <div class="metric-value" id="random_submissions">...</div>
         </div>
         <div>
-          <div class="metric-label">Mansplaining / 拦截说教</div>
-          <div class="metric-value">13,048</div>
+          <div class="metric-label">ACCEPTED / 收录稿件数</div>
+          <div class="metric-value" id="random_accepted">...</div>
         </div>
-        <div>
-          <div class="metric-label">Rejection Rate / 拒稿率</div>
-          <div class="metric-value">99.9<span style="font-size: 0.5em;">%</span></div>
-        </div>
+
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // 设定投稿数随机范围：1000 到 5000 之间
+          var minSub = 1000;
+          var maxSub = 5000;
+          var randomSubmissions = Math.floor(Math.random() * (maxSub - minSub + 1)) + minSub;
+
+          // 设定收录数随机范围：1 到 15 之间 (制造极低录取率的假象)
+          var minAcc = 1;
+          var maxAcc = 15;
+          var randomAccepted = Math.floor(Math.random() * (maxAcc - minAcc + 1)) + minAcc;
+
+          // 注入数据到页面，并使用 toLocaleString() 自动添加千位分隔符 (如 1,234)
+          document.getElementById("random_submissions").innerText = randomSubmissions.toLocaleString();
+          document.getElementById("random_accepted").innerText = randomAccepted.toLocaleString();
+        });
+      </script>
       </div>
 
       <a href="submit/" class="btn-gold">SUBMIT S.C.I. / 提交手稿</a>
